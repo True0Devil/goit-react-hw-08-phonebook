@@ -15,14 +15,14 @@ const initialContacts = [
 
 export const App = () => {
   const [contacts, setContacts] = useState(
-    () => JSON.parse(localStorage.getItem('contacts')) || initialContacts
+    () => JSON.parse(localStorage.getItem('contacts'))
   );
   const [filter, setFilter] = useState('');
 
   useEffect(() => {
     localStorage.setItem('contacts', JSON.stringify(contacts));
     console.log('загрузили в локал сторэдж');
-    contacts.length === 0 && setContacts(initialContacts);
+    contacts.length || setContacts(initialContacts);
   }, [contacts]);
 
   const handleFilterChange = e => {
