@@ -1,10 +1,14 @@
 import { Form, Label, Input, Button } from './AddContact.styled';
-import PropTypes from 'prop-types';
 import { useState } from 'react';
+import { addContact } from 'redux/contacts.slice';
+import { useDispatch } from 'react-redux';
+import shortid from 'shortid';
 
-export const AddContact = ({ addContact }) => {
+export const AddContact = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
+
+  const dispatch = useDispatch();
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -25,7 +29,7 @@ export const AddContact = ({ addContact }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    addContact({ name, number });
+    dispatch(addContact({ id: shortid.generate(), name, number }));
     refetForm();
   };
 
@@ -65,8 +69,4 @@ export const AddContact = ({ addContact }) => {
       <Button type="submit">Add contact</Button>
     </Form>
   );
-};
-
-AddContact.propTypes = {
-  addContact: PropTypes.func.isRequired,
 };
