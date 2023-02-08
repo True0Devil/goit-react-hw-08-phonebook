@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { deleteContact } from 'redux/contacts.slice';
 
 export const ShowContacts = () => {
-  const contacts = useSelector(state => state.contacts);
+  const contacts = useSelector(state => state.contacts.data);
   const filter = useSelector(state => state.filter);
   const dispatch = useDispatch();
 
