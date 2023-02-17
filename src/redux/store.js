@@ -4,7 +4,6 @@ import { contactsReducer } from './contacts.slice';
 import { filterReducer } from './filter.slice';
 
 import {
-  persistStore,
   FLUSH,
   REHYDRATE,
   PAUSE,
@@ -34,4 +33,4 @@ export const store = configureStore({
     }),
 });
 
-export const persistor = persistStore(store);
+
