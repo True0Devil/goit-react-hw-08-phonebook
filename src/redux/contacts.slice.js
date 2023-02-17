@@ -11,18 +11,31 @@ const contactsSlice = createSlice({
   name: 'contacts',
   initialState: initialContacts,
 
-  extraReducers: {
-    [fetchContactsThunk.fulfilled]: (state, { payload }) => {
-      state.items = payload;
-    },
+  // extraReducers: {
+  //   [fetchContactsThunk.fulfilled]: (state, { payload }) => {
+  //     state.items = payload;
+  //   },
 
-    [addContactThunk.fulfilled]: (state, { payload }) => {
-      state.items.push(payload);
-    },
+  //   [addContactThunk.fulfilled]: (state, { payload }) => {
+  //     state.items.push(payload);
+  //   },
 
-    [deleteContactThunk.fulfilled]: (state, { payload }) => {
-      state.items = state.items.filter(item => item.id !== payload.id);
-    },
+  //   [deleteContactThunk.fulfilled]: (state, { payload }) => {
+  //     state.items = state.items.filter(item => item.id !== payload.id);
+  //   },
+  // },
+
+  extraReducers: builder => {
+    builder
+      .addCase(fetchContactsThunk.fulfilled, (state, { payload }) => {
+        state.items = payload;
+      })
+      .addCase(addContactThunk.fulfilled, (state, { payload }) => {
+        state.items.push(payload);
+      })
+      .addCase(deleteContactThunk.fulfilled, (state, { payload }) => {
+        state.items = state.items.filter(item => item.id !== payload.id);
+      });
   },
 });
 
