@@ -2,7 +2,7 @@ import { List, Item, Button } from './ShowContacts.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteContactThunk, fetchContactsThunk } from 'redux/contacts.thunk';
 import { useEffect } from 'react';
-import { selectVisibleContacts } from 'redux/contacts.selectors';
+import { selectVisibleContacts } from 'redux/selectors';
 
 export const ShowContacts = () => {
   const contacts = useSelector(selectVisibleContacts);
