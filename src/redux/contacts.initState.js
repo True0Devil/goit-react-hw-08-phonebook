@@ -10,5 +10,3 @@ export const initialContacts = {
   isLoading: false,
   error: null,
 };
-
-// Initial State turned into an object due to Persist stringifying an array into an object
