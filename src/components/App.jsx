@@ -1,6 +1,6 @@
 import { ToastContainer } from 'react-toastify';
 import { lazy, useEffect } from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import Layout from './Layout/Layout';
 import { PublicRoute } from './AuthRoutes/PublicRoute';
 import { PrivateRoute } from './AuthRoutes/PrivateRoute';
@@ -23,6 +23,7 @@ export const App = () => {
       <BrowserRouter basename="/goit-react-hw-08-phonebook">
         <Routes>
           <Route path="/" element={<Layout />}>
+            <Route index element={<Navigate to="/login" replace />} />
             <Route path="" element={<PublicRoute />}>
               <Route path="/signup" element={<SignupPage />} />
               <Route path="/login" element={<LoginPage />} />
