@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/goit-react-hw-08-phonebook/static/css/main.b0e350f9.css",
-    "main.js": "/goit-react-hw-08-phonebook/static/js/main.baefd22e.js",
+    "main.js": "/goit-react-hw-08-phonebook/static/js/main.d7966df3.js",
     "static/js/38.22aaaf3c.chunk.js": "/goit-react-hw-08-phonebook/static/js/38.22aaaf3c.chunk.js",
     "static/js/977.9ed5d5f3.chunk.js": "/goit-react-hw-08-phonebook/static/js/977.9ed5d5f3.chunk.js",
     "static/js/25.024a7dc4.chunk.js": "/goit-react-hw-08-phonebook/static/js/25.024a7dc4.chunk.js",
@@ -11,7 +11,7 @@
     "static/media/doorGuard.jpg": "/goit-react-hw-08-phonebook/static/media/doorGuard.f7a1625b8aaaf1d50337.jpg",
     "index.html": "/goit-react-hw-08-phonebook/index.html",
     "main.b0e350f9.css.map": "/goit-react-hw-08-phonebook/static/css/main.b0e350f9.css.map",
-    "main.baefd22e.js.map": "/goit-react-hw-08-phonebook/static/js/main.baefd22e.js.map",
+    "main.d7966df3.js.map": "/goit-react-hw-08-phonebook/static/js/main.d7966df3.js.map",
     "38.22aaaf3c.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/38.22aaaf3c.chunk.js.map",
     "977.9ed5d5f3.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/977.9ed5d5f3.chunk.js.map",
     "25.024a7dc4.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/25.024a7dc4.chunk.js.map",
@@ -19,6 +19,6 @@
   },
   "entrypoints": [
     "static/css/main.b0e350f9.css",
-    "static/js/main.baefd22e.js"
+    "static/js/main.d7966df3.js"
   ]
 }
