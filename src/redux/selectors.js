@@ -14,3 +14,5 @@ export const selectVisibleContacts = createSelector(
     );
   }
 );
+
+

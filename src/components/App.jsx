@@ -1,30 +1,43 @@
-import { AddContact } from './AddContact/AddContact';
-import { ShowContacts } from './ShowContacts/ShowContacts';
-import { Filter } from './Filter/Filter';
-import { Section } from './Section/Section';
 import { ToastContainer } from 'react-toastify';
-import SignupPage from 'pages/SignupPage/SignupPage';
-import LoginPage from 'pages/LoginPage/LoginPage';
+import { lazy, useEffect } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Layout from './Layout/Layout';
+import { PublicRoute } from './AuthRoutes/PublicRoute';
+import { PrivateRoute } from './AuthRoutes/PrivateRoute';
+import { useDispatch } from 'react-redux';
+import { refreshThunk } from 'redux/auth/auth.thunk';
 
-
+const SignupPage = lazy(() => import('pages/SignupPage/SignupPage'));
+const LoginPage = lazy(() => import('pages/LoginPage/LoginPage'));
+const ContactsPage = lazy(() => import('pages/ContactsPage/ContactsPage'));
 
 export const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(refreshThunk());
+  }, [dispatch]);
+
   return (
     <>
-      <SignupPage />
-      <LoginPage />
-      <Section title="Phonebook">
-        <AddContact />
-      </Section>
+      <BrowserRouter basename="/goit-react-hw-08-phonebook">
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route path="" element={<PublicRoute />}>
+              <Route path="/signup" element={<SignupPage />} />
+              <Route path="/login" element={<LoginPage />} />
+            </Route>
 
-      <Section title="Contacts">
-        <Filter />
-        <ShowContacts />
-      </Section>
+            <Route path="" element={<PrivateRoute />}>
+              <Route path="/contacts" element={<ContactsPage />} />
+            </Route>
+          </Route>
+        </Routes>
+      </BrowserRouter>
 
       <ToastContainer
         position="top-right"
-        autoClose={5000}
+        autoClose={1500}
         limit={3}
         hideProgressBar={false}
         newestOnTop={false}

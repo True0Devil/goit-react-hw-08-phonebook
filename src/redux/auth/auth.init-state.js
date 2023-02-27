@@ -1,3 +1,4 @@
 export const authInitState = {
-  data: null,
+  token: null,
+  user: null,
 };

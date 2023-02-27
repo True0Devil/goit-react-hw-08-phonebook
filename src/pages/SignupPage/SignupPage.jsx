@@ -1,6 +1,16 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
-import { publicAPI } from 'services/auth.services';
+import { signupThunk } from 'redux/auth/auth.thunk';
+import { MainContainer } from './SignupPage.styled';
+import {
+  Form,
+  Input,
+  Label,
+  Button,
+  Title,
+  Container,
+} from 'pages/common.styled';
 
 const initialState = {
   name: '',
@@ -11,6 +21,7 @@ const initialState = {
 
 const SignupPage = () => {
   const [userData, setUserSata] = useState(initialState);
+  const dispatch = useDispatch();
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -22,15 +33,15 @@ const SignupPage = () => {
 
     try {
       //   setIsLoading(true);
-      await publicAPI.post('users/signup', {
-        name: `${userData.name} ${userData.surname}`,
-        email: userData.email,
-        password: userData.password,
-      });
-
-      // {name: "dan dan", email: "qqwe@gmail.com", password: "1234567"}
+      dispatch(
+        signupThunk({
+          name: `${userData.name} ${userData.surname}`,
+          email: userData.email,
+          password: userData.password,
+        })
+      );
       //   setIsLoading(false);
-      toast.success('Success!');
+      toast.success('Successfully signed up!');
     } catch (e) {
       console.log(e);
       toast.error('Something went wrong. Please try again.');
@@ -38,51 +49,54 @@ const SignupPage = () => {
   };
 
   return (
-    <>
-      <form action="" onSubmit={handleSubmit}>
-        <label htmlFor="">
-          Name
-          <input
-            type="text"
-            name="name"
-            onChange={handleChange}
-            value={userData.name}
-          />
-        </label>
+    <MainContainer>
+      <Container>
+        <Title>Join now!</Title>
+        <Form action="" onSubmit={handleSubmit}>
+          <Label htmlFor="">
+            Name
+            <Input
+              type="text"
+              name="name"
+              onChange={handleChange}
+              value={userData.name}
+            />
+          </Label>
 
-        <label htmlFor="">
-          Surname
-          <input
-            type="text"
-            name="surname"
-            onChange={handleChange}
-            value={userData.surname}
-          />
-        </label>
+          <Label htmlFor="">
+            Surname
+            <Input
+              type="text"
+              name="surname"
+              onChange={handleChange}
+              value={userData.surname}
+            />
+          </Label>
 
-        <label htmlFor="">
-          Email
-          <input
-            type="email"
-            name="email"
-            onChange={handleChange}
-            value={userData.email}
-          />
-        </label>
+          <Label htmlFor="">
+            Email
+            <Input
+              type="email"
+              name="email"
+              onChange={handleChange}
+              value={userData.email}
+            />
+          </Label>
 
-        <label htmlFor="">
-          Password
-          <input
-            type="password"
-            name="password"
-            onChange={handleChange}
-            value={userData.password}
-          />
-        </label>
+          <Label htmlFor="">
+            Password
+            <Input
+              type="password"
+              name="password"
+              onChange={handleChange}
+              value={userData.password}
+            />
+          </Label>
 
-        <button type="submit">Create new Account</button>
-      </form>
-    </>
+          <Button type="submit">Create new Account</Button>
+        </Form>
+      </Container>
+    </MainContainer>
   );
 };
 

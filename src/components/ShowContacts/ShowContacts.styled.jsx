@@ -1,19 +1,16 @@
 import styled from 'styled-components';
 
 export const List = styled.ul`
-  max-width: 600px;
-
-  padding: 0;
-  padding-left: 20px;
+  padding: 0 50px 0 20px;
   margin: 0;
-`;
+ `;
 
 export const Item = styled.li`
   display: flex;
   justify-content: space-between;
 
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 500;
 
   :not(:last-child) {

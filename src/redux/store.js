@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { authInitState } from './auth/auth.init-state';
 import { authReducer } from './auth/auth.slice';
-import { initialContacts } from './contacts.initState';
-import { contactsReducer } from './contacts.slice';
+import { initialContacts } from './contacts/contacts.initState';
+import { contactsReducer } from './contacts/contacts.slice';
 import { filterReducer } from './filter.slice';
 
 import {

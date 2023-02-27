@@ -4,14 +4,13 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
 
-  max-width: 600px;
+  min-width: 1000px;
   padding: 10px;
   border: 2px solid black;
   border-radius: 12px;
 `;
 
 export const Label = styled.label`
-  /* display: block; */
   margin-bottom: 20px;
 
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -20,8 +19,7 @@ export const Label = styled.label`
 export const Input = styled.input`
   display: block;
   margin-top: 10px;
-
-  min-width: 300px;
+  width: calc(100% - 50px);
 
   padding: 8px;
   font-size: 18px;

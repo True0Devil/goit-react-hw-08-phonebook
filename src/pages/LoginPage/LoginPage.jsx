@@ -1,7 +1,16 @@
+import {
+  Form,
+  Input,
+  Label,
+  Button,
+  Title,
+  Container,
+} from 'pages/common.styled';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 import { loginThunk } from 'redux/auth/auth.thunk';
+import { MainContainer } from './LoginPage.styled';
 
 const initialState = {
   email: '',
@@ -22,11 +31,9 @@ const LoginPage = () => {
 
     try {
       //   setIsLoading(true);
-      await dispatch(loginThunk(userData));
-
-      // {name: "dan dan", email: "qqwe@gmail.com", password: "1234567"}
+      dispatch(loginThunk(userData));
       //   setIsLoading(false);
-      toast.success('Success!');
+      toast.success('Successfully logged in!');
     } catch (e) {
       console.log(e);
       toast.error('Something went wrong. Please try again.');
@@ -34,30 +41,35 @@ const LoginPage = () => {
   };
 
   return (
-    <>
-      <form action="" onSubmit={handleSubmit}>
-        <label htmlFor="">
-          E-mail
-          <input
-            type="email"
-            name="email"
-            onChange={handleChange}
-            value={userData.email}
-          />
-        </label>
-        <label htmlFor="">
-          Password
-          <input
-            type="password"
-            name="password"
-            onChange={handleChange}
-            value={userData.password}
-          />
-        </label>
+    <MainContainer>
+      <Container>
+        <Title>Please log in to enter your own personal phonebook</Title>
+        <Form action="" onSubmit={handleSubmit}>
+          <Label htmlFor="">
+            E-mail
+            <Input
+              type="email"
+              name="email"
+              onChange={handleChange}
+              value={userData.email}
+              placeholder="Enter your e-mail"
+            />
+          </Label>
+          <Label htmlFor="">
+            Password
+            <Input
+              type="password"
+              name="password"
+              onChange={handleChange}
+              value={userData.password}
+              placeholder="Enter your password"
+            />
+          </Label>
 
-        <button type="submit">Login</button>
-      </form>
-    </>
+          <Button type="submit">Log in</Button>
+        </Form>
+      </Container>
+    </MainContainer>
   );
 };
 

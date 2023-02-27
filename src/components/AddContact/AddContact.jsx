@@ -1,7 +1,7 @@
 import { Form, Label, Input, Button } from './AddContact.styled';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContactThunk } from 'redux/contacts.thunk';
+import { addContactThunk } from 'redux/contacts/contacts.thunk';
 import { selectContacts } from 'redux/selectors';
 import { toast } from 'react-toastify';
 
